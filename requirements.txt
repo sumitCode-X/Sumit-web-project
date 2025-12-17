@@ -1,0 +1,6 @@
+# No external Python dependencies required for this project.
+# Optional production server packages (if you want to run Python server inside a container):
+# - gunicorn: WSGI server (requires a WSGI app)
+# - waitress: pure-Python WSGI server for Windows/Linux
+# Add only what you need, for example:
+gunicorn==20.1.0

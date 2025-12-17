@@ -1,0 +1,334 @@
+/* ===== Modern Intro Styles ===== */
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--accent-dark) 0%, #3a2618 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.modern-loader {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Animated Border */
+.loader-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.border-inner {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255,255,255,0.2), 
+    transparent);
+  animation: borderFlow 3s linear infinite;
+  transform: rotate(45deg);
+}
+
+@keyframes borderFlow {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Profile Container */
+.profile-container {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 40px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.profile-image::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    var(--accent), 
+    var(--paper),
+    var(--accent-dark));
+  border-radius: 50%;
+  z-index: -1;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.image-placeholder {
+  font-size: 80px;
+  color: var(--paper);
+}
+
+/* Animated Circles */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.1);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.circle-1 {
+  top: -20px;
+  left: -20px;
+  width: 220px;
+  height: 220px;
+  animation-delay: 0s;
+}
+
+.circle-2 {
+  top: -40px;
+  left: -40px;
+  width: 260px;
+  height: 260px;
+  animation-delay: 0.3s;
+}
+
+.circle-3 {
+  top: -60px;
+  left: -60px;
+  width: 300px;
+  height: 300px;
+  animation-delay: 0.6s;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.05); opacity: 0.6; }
+}
+
+/* Tech Icons */
+.tech-icons {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  background: var(--accent-dark);
+  padding: 10px 20px;
+  border-radius: 25px;
+  z-index: 3;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.tech-icons i {
+  font-size: 24px;
+  color: var(--paper);
+  transition: all 0.3s ease;
+  animation: bounce 2s infinite;
+}
+
+.tech-icons i:nth-child(1) { animation-delay: 0s; color: #E34F26; }
+.tech-icons i:nth-child(2) { animation-delay: 0.2s; color: #1572B6; }
+.tech-icons i:nth-child(3) { animation-delay: 0.4s; color: #F7DF1E; }
+.tech-icons i:nth-child(4) { animation-delay: 0.6s; color: #61DAFB; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Loader Content */
+.loader-content {
+  margin-top: 30px;
+}
+
+.name-title {
+  margin-bottom: 30px;
+}
+
+.name-text {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--paper);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.title-text {
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  animation: fadeInUp 0.8s ease 0.3s forwards;
+  opacity: 0;
+}
+
+/* Progress Bar */
+.progress-container {
+  margin: 40px 0;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--paper));
+  border-radius: 2px;
+  animation: loadProgress 2s ease-in-out forwards;
+}
+
+.progress-text {
+  display: block;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  font-family: "Open Sans", sans-serif;
+  animation: fadeIn 1s ease 1s forwards;
+  opacity: 0;
+}
+
+/* Welcome Text */
+.welcome-text {
+  margin-top: 30px;
+  opacity: 0;
+  animation: fadeIn 1s ease 1.5s forwards;
+}
+
+.welcome-text p {
+  color: var(--paper);
+  font-family: "Open Sans", sans-serif;
+  margin: 5px 0;
+}
+
+.welcome-text p:first-child {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.welcome-text .tagline {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Bottom Animation */
+.bottom-animation {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255,255,255,0.3), 
+    transparent);
+  margin-bottom: 15px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--paper);
+  opacity: 0;
+  animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+.dot-1 { animation-delay: 0s; }
+.dot-2 { animation-delay: 0.3s; }
+.dot-3 { animation-delay: 0.6s; }
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes loadProgress {
+  0% { width: 0%; }
+  50% { width: 70%; }
+  100% { width: 100%; }
+}
+
+/* Hide main page initially */
+#main-page {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+#main-page.visible {
+  opacity: 1;
+}
